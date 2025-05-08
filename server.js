@@ -17,7 +17,7 @@ mongoose.connect(process.env.VITE_MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error(err));
 
-app.post("/api/doctorlists", async (req, res) => {
+app.post("https://apollo-backend-6a3c.onrender.com/api/doctorlists", async (req, res) => {
   try {
     const DoctorList = new DoctorList(req.body);
     await DoctorList.save();
@@ -27,7 +27,7 @@ app.post("/api/doctorlists", async (req, res) => {
     res.status(500).json({ error: "Error saving feedback" });
   }
 });
-app.get("/api/doctorlists", async (req, res) => {
+app.get("https://apollo-backend-6a3c.onrender.com/api/doctorlists", async (req, res) => {
   try {
     const DoctorLists = await DoctorList.find();
     console.log(DoctorLists); // Log the data
